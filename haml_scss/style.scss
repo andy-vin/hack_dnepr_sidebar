@@ -1,0 +1,53 @@
+@import url(http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css);
+
+$base: #81C5EF; $accent: #FFF;
+$speed: .5s; $ease: ease-in-out;
+
+*, *:before, *:after { box-sizing: border-box; }
+body {
+  background: url('http://goo.gl/nL5JbX');
+  font-family: 'Open Sans', sans-serif;
+  font-size: 11pt;
+  color: $accent;
+  line-height: normal;
+  font-smoothing: antialiased;
+}
+#sidebar {
+  position: fixed;
+  top: 0; left: 0;
+  margin: 25px;
+
+  transition: all $speed $ease;
+  ul > li {
+    background: $base;
+    overflow: hidden;
+    transition: all .8s ease;
+    white-space: nowrap;
+    max-width: 50px;
+    min-width: 50px;
+    &:hover { max-width: 100%; }
+    a {
+      height: 50px;
+      border-top: 1px solid darken($base,5%);
+      display: block;
+      color: $accent;
+      line-height: 50px;
+      text-decoration: none;
+      i {
+        width: 50px; height: 50px;
+        box-shadow: 1px 0 darken($base,5%);
+        font-size: 12pt;
+        text-align: center;
+        line-height: 50px;
+      }
+      span {
+        padding: 0 15px;
+        opacity: 0;
+        transform: translateX(15px);
+        // transition: all $speed $ease;
+      }
+    }
+    // &:hover { background: rgba(255,255,255,.15); }
+  }
+  &:hover ul li a span { opacity: 1; transform: translateX(0); }
+}
